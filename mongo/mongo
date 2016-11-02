@@ -1,0 +1,109 @@
+db.collection.insert(
+   {
+     writeConcern: <document>,
+     ordered: <boolean>
+   }
+)
+
+
+db.restaurants.update(
+  { "restaurant_id" : "41156888" },
+  { $set: { "address.street": "East 31st Street" } }
+)
+
+db.collection.update({"name":"pogi"},{$set:{"item":["credit_card3","atm_card3]}})
+db.collection.insert({name:"pogi2",item:["atm_card","credit_card"]})
+
+db.user.update({"username":"elomat"},{$set:{"roles":["user.guest","dcms.admin","geoip.admin"]}})
+
+db.dcms_kill_switch.update({"onetimeuse":"0"},{$set:{"onetimeuse":"0"}})
+
+db.dcms_kill_switch.update({"onetimeuse":"0"},{$set:{"onetimeuse":"0","appease_compute_disable" : "0", "appease_gen_disable" : "0", "frstxusrs_compute_disable" : "0", "frstxusrs_gen_disable" : "0", "id" : "api_killswitch", "otu_compute_disable" : "0", "otu_gen_disable" : "0"}})
+
+db.dcms_one_time_use_coupons_batches.find({"auto_dispense":{$exists:true}})
+db.dcms_one_time_use_coupons_batches.find({"auto_dispense":{$exists:true}}).count()
+db.dcms_one_time_use_coupons_batches.find().count()
+
+db.users.update({"username":"macuna"},{$set:{"roles":["user.guest","dcms.admin"]}})
+
+db.users.insert({"username":"rsarmiento","roles":["user.guest","dcms.admin"]})
+
+INSERT:
+db.users.insert({"roles":["user.guest","dcms.admin"],"username":"rsarmiento"})
+UPDATE:
+db.users.update({"username":"rcsarmiento"},{$set:{"roles":["user.guest","dcms.admin"]}})
+DELETE:
+db.users.delete({"username":"rsarmiento"})
+db.dcms_one_time_use_coupons_batches.remove({"auto_dispense":{$exists:true}})
+
+"brandPart" : {
+	"2 Wheel Tunes" : [
+		"Accessory Mounting Kit",
+		"Charging Adapter"
+	]
+},
+
+db.users.update({"username":"masturiano"},{$set:{
+"roles" : [
+		"user.guest",
+		"dcms.admin",
+		"dcms.super"
+		"geoip.admin"
+	]
+}})
+
+
+db.roles.update({"name" : "Dcms Tool Administrator"},{$set:{
+"permissions" : [
+		"dcms.index.homeguest",
+		"dcms.index.search",
+		"dcms.coupon.couponsecondary",
+		"dcms.coupon.otucouponsecondary",
+		"dcms.coupon.viewotucoupon",
+		"dcms.coupon.view",
+		"dcms.couponowners.view",
+		"dcms.template.view",
+		"dcms.index.index",
+		"dcms.index.home",
+		"dcms.index.delete",
+		"dcms.coupon.index",
+		"dcms.coupon.add",
+		"dcms.coupon.edit",
+		"dcms.coupon.searchcoupon",
+		"dcms.coupon.addotucoupon",
+		"dcms.coupon.ajax",
+		"dcms.coupon.otubatchlist",
+		"dcms.coupon.otucoupon",
+		"dcms.coupon.production",
+		"dcms.coupon.updateotucoupon",
+		"dcms.coupon.export-otu",
+		"dcms.coupon.export",
+		"dcms.coupon.coupons",
+		"dcms.coupon.pages",
+		"dcms.template.add",
+		"dcms.template.addupload",
+		"dcms.template.brandlist",
+		"dcms.template.brandpartlist",
+		"dcms.template.brandskulist",
+		"dcms.template.delete",
+		"dcms.template.edit",
+		"dcms.template.index",
+		"dcms.template.list",
+		"dcms.template.partbrandlist",
+		"dcms.template.partlist",
+		"dcms.template.searchtemplate",
+		"dcms.template.options",
+		"dcms.template.pages",
+		"dcms.exclusion.index",
+		"dcms.exclusion.ajax",
+		"dcms.exclusion.list",
+		"dcms.exclusion.exclusionlist",
+		"dcms.exclusion.existsearch",
+		"dcms.couponowners.index",
+		"dcms.couponowners.addowner",
+		"dcms.couponowners.updateowner",
+		"dcms.couponowners.deleteowner",
+		"dcms.couponowners.ajax",
+		"dcms.sample.queued"
+	]}})
+

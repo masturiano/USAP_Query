@@ -1,0 +1,5 @@
+select * from master_template where brand = 'AutoCustomCarpets' and part_number = 'AC1145261821178';
+
+
+select * from master_template where brand = 'Bentley' and part_number = 'W0133-1623528';
+Bentley+W0133-1623528

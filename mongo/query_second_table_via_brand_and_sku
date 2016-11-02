@@ -1,0 +1,4 @@
+AutoCustomCarpets
+AC1145261821178
+
+db.cp_ir_sku.find({'brand':'AutoCustomCarpets','SKU':'AC1145261821178'});

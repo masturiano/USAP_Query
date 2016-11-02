@@ -1,0 +1,44 @@
+db.dcms_restrictions_working_temp.aggregate([
+    { "$group": {
+        "_id": {
+            "brandSku": "$brandSku",
+        }
+    }},
+    { "$group": {
+        "_id": "$_id.brandSku.usap.2 Wheel Tunes",
+    }},
+])
+
+db.books.aggregate([
+    { "$group": {
+        "_id": {
+            "addr": "$addr",
+            "book": "$book"
+        },
+        "bookCount": { "$sum": 1 }
+    }},
+    { "$group": {
+        "_id": "$_id.addr",
+        "books": { 
+            "$push": { 
+                "book": "$_id.book",
+                "count": "$bookCount"
+            },
+        },
+        "count": { "$sum": "$bookCount" }
+    }},
+    { "$sort": { "count": -1 } },
+    { "$limit": 2 },
+    { "$project": {
+        "books": { "$slice": [ "$books", 2 ] },
+        "count": 1
+    }}
+])
+
+db.recipes.aggregate([{$unwind:"$ingredients"},{$group:{_id:"$ingredients.name"}}])
+
+db.dcms_restrictions_working_temp.find({$group: brandSku}).pretty()
+
+db.dcms_restrictions_working_temp.aggregate([{$unwind:"$brandSku"},{$group:{_id:"$brandSku.usap"}}])
+
+db.dcms_restrictions_working_temp.distinct('brandSku.usap.2 Wheel Tunes')

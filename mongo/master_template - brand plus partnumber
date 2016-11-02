@@ -1,0 +1,35 @@
+select * from master_template where part_number = REPU160902 \G
+select * from apw_pla_google_mydel where sku = REPU160902 \G
+
+select * from master_template where part_number = 'AC9093CCTL2' \G
+select * from apw_pla_google_mydel where sku = 'AC9093CCTL2' \G
+
+select * from master_template where concat(brand,part_number)='B&MB3246076'   limit 10 \G;
+
+
+select * from master_template where part = 'Tail Light' and qualifier_values like '%performance%' and qualifier_values like '%led%'limit 10 \G
+
+alter table apw_google_mydel add ci_merchant_id varchar(255)
+
+WHERE m.part = 'Tail Light' and m.qualifier_values like '%performance%' and m.qualifier_values like '%led%'
+and m.team_id not in ('10','11','14','25')
+
+
+WHERE m.part = 'Tail Light' and m.qualifier_values like '%performance%' and m.qualifier_values like '%|led|%'
+and m.qualifier_types like '%recommendeduse%' and m.qualifier_types like '%lightsource%'
+and m.team_id in (10,11,14,25)
+and m.brand <> 'Replacement'
+
+cd /data/aopi/feeds_longbow/autopartswarehouse/froogle_Detailed.pla/staging/data/output/latest/apw_ci sh upload_ci.sh 
+
+
+
+/data/aopi/feeds_longbow/carparts/froogle_pla/channel_intelegence/scripts
+/data/aopi/feeds_longbow/carparts/froogle_pla/channel_intelegence/data/latest
+
+select * from master_template where brand = 'ATE' and part_number = 'W0133-1628251'
+
+ATE+W0133-1628251
+
+
+select count(*) from master_template where brand = 'ATE' and part_number = 'W0133-1628251';
